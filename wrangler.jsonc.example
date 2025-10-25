@@ -12,11 +12,13 @@
       "localConnectionString": "postgres://postgres:postgres@localhost:5432/mydb",
     },
   ],
+  "workers_dev": true,
+  "preview_urls": true,
 
   // Local development
   "dev": {
     "local_protocol": "http",
     "ip": "localhost",
-    "port": 8801,
+    "port": 3000,
   },
 }
