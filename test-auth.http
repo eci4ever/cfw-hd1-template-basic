@@ -1,7 +1,7 @@
 ### Better Auth API Tests
-# @baseUrl = http://localhost:8801
-@baseUrl = {{baseUrlProduction}}
-@baseUrlProduction = https://cloudflare-auth-worker.eci4ever.workers.dev
+@baseUrl = http://localhost:3000
+# @baseUrl = {{baseUrlProduction}}
+# @baseUrlProduction = https://cloudflare-auth-worker.eci4ever.workers.dev
 
 
 ### Test 0: Check server status
@@ -18,7 +18,7 @@ Content-Type: application/json
 Origin: {{baseUrl}}
 
 {
-  "email": "newauthtest@example.com",
+  "email": "admin@example.com",
   "password": "password123",
   "name": "New Auth Test User"
 }
@@ -31,7 +31,7 @@ Content-Type: application/json
 Origin: {{baseUrl}}
 
 {
-  "email": "newauthtest@example.com",
+  "email": "admin@example.com",
   "password": "password123"
 }
 

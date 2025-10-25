@@ -6,7 +6,20 @@ import { betterAuthOptions } from "./options";
 import * as schema from "../../db/schema";
 
 export const auth = (env: CloudflareBindings) => {
-  const pool = new Pool({ connectionString: env.HYPERDRIVE.connectionString });
+  // Use Hyperdrive for production, direct connection for local dev
+  const connectionString = env.HYPERDRIVE?.connectionString || env.DATABASE_URL;
+
+  if (!connectionString) {
+    throw new Error(
+      "No database connection string available. Check DATABASE_URL or HYPERDRIVE configuration."
+    );
+  }
+
+  // Try a simpler connection approach
+  const pool = new Pool({
+    connectionString,
+  });
+
   const db = drizzle(pool);
 
   return betterAuth({
