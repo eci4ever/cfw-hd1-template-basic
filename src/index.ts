@@ -8,7 +8,7 @@ const app = new Hono<{ Bindings: CloudflareBindings }>();
 app.use(
   "*",
   cors({
-    origin: ["http://localhost:3000", "http://localhost:8801"],
+    origin: "*",
     credentials: true,
   })
 );

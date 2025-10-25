@@ -5,11 +5,13 @@ export const betterAuthOptions: BetterAuthOptions = {
   basePath: "/api/auth",
   emailAndPassword: {
     enabled: true,
-    requireEmailVerification: false, // Disable for local dev
   },
   session: {
     expiresIn: 60 * 60 * 24 * 7, // 7 days
     updateAge: 60 * 60 * 24, // 1 day
   },
-  trustedOrigins: ["http://localhost:3000", "http://localhost:8801"],
+  trustedOrigins: [
+    "http://localhost:3000",
+    "https://cfw-hd1-template-basic.eci4ever.workers.dev",
+  ],
 };

@@ -1,5 +1,5 @@
 {
-  "name": "cloudflare-auth-worker",
+  "name": "cfw-hd1-template-basic",
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler secret bulk .dev.vars.production && wrangler deploy --minify",
