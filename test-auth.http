@@ -1,0 +1,52 @@
+### Better Auth API Tests
+# @baseUrl = http://localhost:8801
+@baseUrl = {{baseUrlProduction}}
+@baseUrlProduction = https://cloudflare-auth-worker.eci4ever.workers.dev
+
+
+### Test 0: Check server status
+GET {{baseUrl}}
+
+### Test 1: Check session (should return empty if not logged in)
+GET {{baseUrl}}/api/auth/get-session
+
+###
+
+### Test 2: Sign up a new user
+POST {{baseUrl}}/api/auth/sign-up/email
+Content-Type: application/json
+Origin: {{baseUrl}}
+
+{
+  "email": "newauthtest@example.com",
+  "password": "password123",
+  "name": "New Auth Test User"
+}
+
+###
+
+### Test 3: Sign in with the user
+POST {{baseUrl}}/api/auth/sign-in/email
+Content-Type: application/json
+Origin: {{baseUrl}}
+
+{
+  "email": "newauthtest@example.com",
+  "password": "password123"
+}
+
+###
+
+### Test 4: Check session after login (should return user data)
+GET {{baseUrl}}/api/auth/get-session
+
+###
+
+### Test 5: Sign out
+POST {{baseUrl}}/api/auth/sign-out
+Origin: {{baseUrl}}
+
+###
+
+### Test 6: Check session after logout (should be empty)
+GET {{baseUrl}}/api/auth/get-session

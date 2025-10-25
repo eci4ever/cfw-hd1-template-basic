@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cloudflare-auth-worker",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-05-22",
+  "minify": true,
+  "compatibility_flags": ["nodejs_compat"],
+  "hyperdrive": [
+    {
+      "binding": "HYPERDRIVE",
+      "id": "",
+      "localConnectionString": "postgres://postgres:postgres@localhost:5432/mydb",
+    },
+  ],
+
+  // Local development
+  "dev": {
+    "local_protocol": "http",
+    "ip": "localhost",
+    "port": 8801,
+  },
+}
